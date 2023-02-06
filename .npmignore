@@ -1,0 +1,11 @@
+*.tgz
+*.ts
+!*.d.ts
+*.test.ts
+*.test.js
+dist/test
+tsconfig.*
+*.sh
+.vscode
+.eslintrc.js
+prettier.config.js
