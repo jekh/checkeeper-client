@@ -9,6 +9,7 @@ import {
   CreateCheckRequest,
   CreateCheckResponse,
   EasternTimeTimestamp,
+  GetAccountInfoResponse,
   GetCheckImageResponse,
   GetCheckStatusResponse,
   ISO8601Instant,
@@ -51,6 +52,14 @@ export class CheckeeperClient {
         "No fetch implementation available on globalThis. Specify a fetch implementation in config options."
       )
     }
+  }
+
+  /** Returns information about this Checkeeper account, including credits remaining. */
+  async getAccountInfo() {
+    const resp: GetAccountInfoResponse | CheckeeperErrorResponse =
+      await this.#makeCheckeeperRequest("/account/info/", {})
+
+    return resp
   }
 
   /** Lists all checks between the specified timestamps. Checkeeper appears to return both test and production checks. */

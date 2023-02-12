@@ -328,3 +328,25 @@ export interface ListCheckItem {
     country: string
   }
 }
+
+export interface GetAccountInfoResponse {
+  success: true
+  account: {
+    token: string
+    company: string
+    name: string
+    email: string
+    /** Appears to be a decimal string, e.g. "50.00" */
+    credits: string
+    logo_small: string
+    logo_large: string
+    /** Decimal string */
+    pdf_cost: string
+    /** Decimal string */
+    overnight_upcharge: string
+    testing: CheckeeperBoolean
+    /** Decimal string */
+    attachment_pdf_cost: string
+    last_check_number: string | null
+  }
+}
