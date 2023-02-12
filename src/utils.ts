@@ -28,3 +28,23 @@ export function base64ToBuffer(base64EncodedString: string) {
 export function base64ToStream(base64EncodedString: string) {
   return Readable.from(base64ToBuffer(base64EncodedString))
 }
+
+/**
+ * Parses the "amount" string returned by Checkeeper into a floating-point whole-dollar number.
+ *
+ * NOTE: Using floating point values to express dollar amounts as numbers is inaccurate and can result in very bad results, especially when adding or multiplying
+ * the floating point value (e.g.: 1.1 + 0.3 = 2.4000000000000004).
+ * Instead, use {@link parseCheckeeperAmountCents} to retrieve the parsed amount in whole cents, and manipulate the integer cents (rouding if needed).
+ */
+export function parseCheckeeperAmount(amount: string): number {
+  // Remove anything that isn't a number or a decimal point (Checkeeper amount strings can contain dollar signs and commas).
+  // Removing commas is safe since Checkeeper amounts are always US/CA locales (decimal point is '.', thousands separator is ',').
+  return Number.parseFloat(amount.replaceAll(/[^\d.]/g, ""))
+}
+
+/** Parses the "amount" string returned by Checkeeper into an integer number of cents. */
+export function parseCheckeeperAmountCents(amount: string): number {
+  const amountDollars = parseCheckeeperAmount(amount)
+
+  return Math.round(amountDollars * 100)
+}
