@@ -110,20 +110,24 @@ export class CheckeeperClient {
 
   /** Creates a check to be mailed by Checkeeper */
   async mailCheck(input: MailCheckOptions) {
-    const resp = await this.#createCheck(input, false)
+    const resp = await this.createCheck(input, false)
 
     return resp as MailCheckResponse | CheckeeperErrorResponse
   }
 
   /** Creates a check PDF. Does not mail the check. */
   async createCheckPDF(input: CreateCheckOptions) {
-    const resp = await this.#createCheck(input, true)
+    const resp = await this.createCheck(input, true)
 
     return resp as CreateCheckPDFResponse | CheckeeperErrorResponse
   }
 
-  /** Sends a create check request to Checkeeper. Returns a PDF if returnPdf is true, otherwise mails the check. */
-  async #createCheck(input: MailCheckOptions, returnPdf: boolean) {
+  /**
+   * Sends a create check request to Checkeeper. Returns a PDF if returnPdf is true, otherwise mails the check.
+   * If you are always mailing a check or always creating a PDF, the specialized functions {@link mailCheck}
+   * and {@link createCheckPDF} have more convenient return types.
+   */
+  async createCheck(input: MailCheckOptions, returnPdf: boolean) {
     const {
       attachment,
       logo,
