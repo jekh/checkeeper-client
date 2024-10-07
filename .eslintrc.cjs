@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
-  plugins: ["@typescript-eslint", "prettier"],
-  extends: ["plugin:@typescript-eslint/recommended", "prettier"],
+  plugins: ["@typescript-eslint", "unicorn", "prettier"],
+  extends: ["plugin:@typescript-eslint/recommended", "plugin:unicorn/recommended", "prettier"],
   rules: {
     "@typescript-eslint/no-use-before-define": [
       "error",
@@ -46,6 +46,12 @@ module.exports = {
         },
       },
     ],
+    "unicorn/no-array-for-each": "off",
+    "unicorn/no-magic-array-flat-depth": "off",
+    "unicorn/no-null": "off",
+    "unicorn/no-useless-undefined": "off",
+    "unicorn/prevent-abbreviations": "off",
+    "unicorn/switch-case-braces": "off",
     "prettier/prettier": "warn",
   },
   parser: "@typescript-eslint/parser",

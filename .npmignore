@@ -7,5 +7,6 @@ dist/test
 tsconfig.*
 *.sh
 .vscode
-.eslintrc.js
-prettier.config.js
+.eslintrc.*
+prettier.config.*
+
