@@ -1,5 +1,5 @@
-import crypto from "node:crypto"
-import { Base64String } from "././types"
+import { createHmac } from "node:crypto"
+import { Base64String } from "./types.js"
 
 /** Returns the signature for a Checkeeper request. The request must contain the token, but must not contain a "signature" property.  */
 export function getCheckeeperRequestSignature(req: any, secretKey: string): string {
@@ -26,7 +26,7 @@ export function createSignableString(req: any): string {
 
 /** Signs the string using the signingKey and returns the result as a base64 string. */
 export function signString(str: string, secretKey: string): Base64String {
-  return crypto.createHmac("sha256", secretKey).update(str).digest("base64")
+  return createHmac("sha256", secretKey).update(str).digest("base64")
 }
 
 type Entry = [string, unknown]

@@ -1,11 +1,17 @@
 {
   "name": "checkeeper-client",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "API client and signature generator for Checkeeper",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "packageManager": "pnpm@9.12.1",
   "engines": {
-    "node": ">=16.15"
+    "node": ">=20"
   },
   "scripts": {
     "clean": "rm -rf dist",
@@ -32,6 +38,5 @@
     "mocha": "^10.2.0",
     "prettier": "^2.8.4",
     "typescript": "^5.6.2"
-  },
-  "packageManager": "pnpm@9.12.1"
+  }
 }

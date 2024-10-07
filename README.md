@@ -4,8 +4,8 @@ A zero-dependency node client for the [Checkeeper API](https://checkeeper.com/ap
 
 ## Requirements
 
-- Node 16.15+
-- For Node <17.5, a `fetch`-compatible polyfill or implementation, such as [isomorphic-fetch](https://www.npmjs.com/package/isomorphic-fetch). Node 18+ uses [built-in fetch support](https://nodejs.org/dist/latest-v18.x/docs/api/globals.html#fetch).
+- Node 20+
+- ESM-only: The client must be imported using `import` or dynamic `import()`
 
 ## Usage
 

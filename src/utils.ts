@@ -1,5 +1,5 @@
-import { Readable } from "stream"
-import { BinaryDataInput } from "./types"
+import { Readable } from "node:stream"
+import { BinaryDataInput } from "./types.js"
 
 /** Converts binary data to base64. The input binary data can be base64, a Buffer, or a ReadableStream. */
 export async function binaryDataToBase64(data: BinaryDataInput): Promise<string> {

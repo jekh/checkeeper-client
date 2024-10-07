@@ -2,8 +2,8 @@
 import sign from "checkeeper-signature"
 
 import { assert } from "chai"
-import { getCheckeeperRequestSignature } from "../signature"
-import { CreateCheckRequest } from "../types"
+import { getCheckeeperRequestSignature } from "../signature.js"
+import { CreateCheckRequest } from "../types.js"
 
 const testKey = "secret"
 

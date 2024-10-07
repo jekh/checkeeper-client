@@ -1,4 +1,4 @@
-import { getCheckeeperRequestSignature } from "./signature"
+import { getCheckeeperRequestSignature } from "./signature.js"
 import {
   CancelCheckResponse,
   CheckeeperBoolean,
@@ -18,8 +18,8 @@ import {
   MailCheckOptions,
   MailCheckResponse,
   NameAddress,
-} from "./types"
-import { binaryDataToBase64 } from "./utils"
+} from "./types.js"
+import { binaryDataToBase64 } from "./utils.js"
 
 export interface Configuration {
   token: string
